@@ -10,6 +10,7 @@ namespace Evtushenko_ikm721a_2_project
     {
         // Вміст робочого об'єкта
         // Поля
+        private System.DateTime TimeBegin;
         private string Data; //вхідні дані
         private string Result; // Поле результату
                                // Методи
@@ -32,5 +33,14 @@ namespace Evtushenko_ikm721a_2_project
                 this.Result = Convert.ToString(false);
             }
         }
+        public void SetTime() // метод запису часу початку роботи програми
+        {
+            this.TimeBegin = System.DateTime.Now;
+        }
+        public System.DateTime GetTime() // Метод отримання часу завершення програми
+        {
+            return this.TimeBegin;
+        }
+
     }
 }
