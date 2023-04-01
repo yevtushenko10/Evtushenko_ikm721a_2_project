@@ -34,6 +34,7 @@ namespace Evtushenko_ikm721a_2_project
             A.tAbout.Start();
             A.ShowDialog();
             this.Mode = true;
+            MajorObject.Modify = false;
         }
 
         private void bStart_Click(object sender, EventArgs e)
@@ -95,11 +96,14 @@ namespace Evtushenko_ikm721a_2_project
             A.ShowDialog();
         }
 
+
         private void зберегтиЯкToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (sfdSave.ShowDialog() == DialogResult.OK)
+            if (sfdSave.ShowDialog() == DialogResult.OK) // Виклик діалогового вікна збереження
+
             {
-                MessageBox.Show(sfdSave.FileName);
+                MajorObject.WriteSaveFileName(sfdSave.FileName); // написання імені файлу
+                MajorObject.SaveToFile(); // метод збереження в файл 
             }
         }
 
