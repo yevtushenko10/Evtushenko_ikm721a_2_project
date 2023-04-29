@@ -112,7 +112,8 @@ namespace Evtushenko_ikm721a_2_project
         {
             if (ofdOpen.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show(ofdOpen.FileName);
+                MajorObject.WriteOpenFileName(ofdOpen.FileName); // відкриття файлу 
+                MajorObject.ReadFromFile(dgwOpen); // читання даних з файлу
             }
 
         }
@@ -158,6 +159,11 @@ namespace Evtushenko_ikm721a_2_project
             if (MajorObject.Modify)
                 if (MessageBox.Show("Дані не були збережені. Продовжити вихід?", "УВАГА",MessageBoxButtons.YesNo) == DialogResult.No)
                     e.Cancel = true; // припинити закриття
+        }
+
+        private void bSearch_Click(object sender, EventArgs e)
+        {
+            MajorObject.Find(tbSearch.Text); //пошук
         }
     }
 }
